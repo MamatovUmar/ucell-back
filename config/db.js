@@ -1,8 +1,8 @@
-import mongoose from 'mongoose'
-const DB_URL = process.env.DB_URL
+import mysql from 'mysql2/promise'
 
-mongoose.connect(DB_URL)
-    .then(() => console.log('MongoDB connected...'))
-    .catch(error => console.log(error));
-
-export default mongoose.connection;
+export default mysql.createPool({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'ucell'
+});
